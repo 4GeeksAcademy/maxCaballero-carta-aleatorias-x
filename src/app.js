@@ -24,6 +24,7 @@ window.onload = function() {
     "Q",
     "K"
   ];
+
   let paloArriba = document.querySelector(".simboloArriba");
   let numero = document.querySelector(".numero");
   let paloAbajo = document.querySelector(".simboloAbajo");
@@ -73,6 +74,7 @@ window.onload = function() {
   window.onload = function() {
     generacionCarta();
   };
+
   document.querySelector(".boton").addEventListener("click", generacionCarta);
 
   console.log("Hello Rigo from the console!");
