@@ -6,76 +6,70 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  //write your code here
+  // Definir la función barajar
+  function barajar() {
+    const numeros = [
+      "A",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "J",
+      "Q",
+      "K"
+    ];
+    const cartas = ["corazon", "rombo", "espada", "trebol"];
 
-  const palos = ["corazon", "rombos", "espada", "trebol"];
-  const valores = [
-    "A",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "J",
-    "Q",
-    "K"
-  ];
+    let numerosAzar = Math.floor(Math.random() * numeros.length);
+    let numerosFin = numeros[numerosAzar];
 
-  let paloArriba = document.querySelector(".simboloArriba");
-  let numero = document.querySelector(".numero");
-  let paloAbajo = document.querySelector(".simboloAbajo");
+    let cartasAzar = Math.floor(Math.random() * cartas.length);
+    let cartasFin = cartas[cartasAzar];
 
-  function eleccionCarta(arr1, arr2) {
-    let carta = [];
-    carta.push(arr1[Math.floor(Math.random() * arr1.length)]);
-    carta.push(arr2[Math.floor(Math.random() * arr2.length)]);
-    return carta;
-  }
-  function asignarColor(arr) {
-    if (arr[0] === "corazon" || arr[0] === "rombos") {
-      paloArriba.style.color = "red";
-      numero.style.color = "red";
-      paloAbajo.style.color = "red";
-    } else {
-      paloArriba.style.color = "black";
-      numero.style.color = "black";
-      paloAbajo.style.color = "black";
+    let fig01 = document.getElementById("figura01");
+    let numerox = document.getElementById("numero");
+    let fig02 = document.getElementById("figura02");
+
+    switch (cartasFin) {
+      case "corazon":
+      case "rombo":
+        fig01.style.color = "red";
+        numerox.style.color = "red";
+        fig02.style.color = "red";
+        break;
+      case "espada":
+      case "trebol":
+        fig01.style.color = "black";
+        numerox.style.color = "black";
+        fig02.style.color = "black";
+        break;
     }
-  }
-  function asignarPalo(arr) {
-    if (arr[0] === "corazon") {
-      paloArriba.innerHTML = "♥";
-      paloAbajo.innerHTML = "♥";
-    } else if (arr[0] === "rombos") {
-      paloArriba.innerHTML = "♦";
-      paloAbajo.innerHTML = "♦";
-    } else if (arr[0] === "trebol") {
-      paloArriba.innerHTML = "♣";
-      paloAbajo.innerHTML = "♣";
+
+    if (cartasFin === "corazon") {
+      fig01.innerHTML = "♥";
+      fig02.innerHTML = "♥";
+    } else if (cartasFin === "rombo") {
+      fig01.innerHTML = "♦";
+      fig02.innerHTML = "♦";
+    } else if (cartasFin === "espada") {
+      fig01.innerHTML = "♠";
+      fig02.innerHTML = "♠";
     } else {
-      paloArriba.innerHTML = "♠";
-      paloAbajo.innerHTML = "♠";
+      fig01.innerHTML = "♣";
+      fig02.innerHTML = "♣";
     }
-  }
-  function asignarValor(arr) {
-    numero.innerHTML = arr[1];
-  }
-  function generacionCarta() {
-    let carta = eleccionCarta(palos, valores);
-    asignarColor(carta);
-    asignarPalo(carta);
-    asignarValor(carta);
+
+    numerox.innerHTML = numerosFin;
   }
 
-  window.onload = function() {
-    generacionCarta();
-  };
+  barajar();
 
-  document.querySelector(".boton").addEventListener("click", generacionCarta);
+  document.querySelector(".boton").addEventListener("click", barajar);
 
   console.log("Hello Rigo from the console!");
 };

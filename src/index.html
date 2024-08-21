@@ -13,21 +13,18 @@
     <link rel="shortcut icon" href="./4geeks.ico" />
   </head>
   <body>
-    <div class="container">
-      <div class="carta">
-        <div class="simboloArriba">
-          <h2 id="figura01"></h2>
-        </div>
-        <div class="numero">
-          <h3 id="figura02"></h3>
-        </div>
-        <div class="simboloAbajo">
-          <h4 id="figura01"></h4>
-        </div>
+    .contenedor{ width: 25rem; height: 35rem; background-color: rgb(7, 44, 7);
+    margin: 6rem auto; display: block; justify-content: center; align-items:
+    center; }
+
+    <div class="contenedor">
+      <h1>GENERADOR DE CARTAS ALEATORIAS</h1>
+      <div class="card">
+        <div class="cardHeader"><h2 id="figura01"></h2></div>
+        <div class="cardBody"><h3 id="numero"></h3></div>
+        <div class="cardFooter"><h4 id="figura02"></h4></div>
       </div>
-      <div class="contenedor-boton">
-        <button class="boton">Barajar</button>
-      </div>
+      <div class="botonera"><button class="boton">barajar</button></div>
     </div>
   </body>
 </html>
